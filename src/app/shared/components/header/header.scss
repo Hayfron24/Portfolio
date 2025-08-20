@@ -1,11 +1,11 @@
 @use "../../styles/variables" as *;
+@use "../../styles/mixin" as *;
 @use "sass:map";
 
 .header-container {
-  display: flex;
-  justify-content: center;
+  @include flexbox($justify: center);
   width: 100%;
-  padding-top: 3rem;
+  padding: 3rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,9 +14,7 @@
   .header {
     width: 80%;
     height: 5.375rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexbox($justify: space-between, $align: center);
     border-radius: 3rem;
     padding: 0 3.6rem;
     background-color: map.get($color-gray, lighter);
@@ -41,7 +39,7 @@
     }
 
     &__contact-btn{
-        padding: 0.8rem 1.6rem;
+        padding: 1rem 1.5rem;
         background-color: map.get($color-brand, default);
         transition: all 0.2s ease-in;
         border-radius: 2rem;
