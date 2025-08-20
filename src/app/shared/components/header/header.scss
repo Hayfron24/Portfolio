@@ -1,0 +1,62 @@
+@use "../../styles/variables" as *;
+@use "sass:map";
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  .header {
+    width: 80%;
+    height: 5.375rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3rem;
+    padding: 0 3.6rem;
+    background-color: map.get($color-gray, lighter);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &__logo {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+
+      img {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+
+      h1 {
+        font-family: $font-family;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: map.get($color-gray, default);
+      }
+    }
+
+    &__contact-btn{
+        padding: 0.8rem 1.6rem;
+        background-color: map.get($color-brand, default);
+        transition: all 0.2s ease-in;
+        border-radius: 2rem;
+        border: none;
+        color: white;
+        font-weight: 700;
+
+        &:focus {
+            outline: 2px solid map.get($color-polo-blue, hover);
+        }
+    
+        &:hover {
+            background-color: map.get($color-brand, hover);
+            color: map.get($color-gray, default);
+        }
+    }
+  }
+}
