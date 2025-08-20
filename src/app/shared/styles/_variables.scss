@@ -1,0 +1,29 @@
+@font-face {
+  font-family: sans-serif, "Outfit";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/Outfit-VariableFont_wght.ttf") format("truetype");
+}
+
+$font-family: "Outfit", sans-serif;
+
+$color-brand:(
+    default: #FB6614,
+    hover: #FFD2A9,
+    light: #FFEBD5,
+    lighter: #FFF6ED,
+);
+
+$color-gray:(
+    default: #3D3D3D,
+    hover: #464646,
+    light: #EFEFEF,
+    lighter: #f3f3f3,
+);
+
+$color-polo-blue: (
+    default: #6880C3,
+    hover: #9AB7DF,
+    light: #F2F7FB,
+
+)
