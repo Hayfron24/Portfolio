@@ -1,0 +1,333 @@
+@use "../../shared/styles/variables" as *;
+@use "../../shared/styles/mixin" as *;
+@use "sass:map";
+
+@keyframes rotateRight {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes rotateLeft {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes appearFromBottom {
+  0% {
+    opacity: 0;
+    scale: 0.2;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.home {
+  &__hero-section {
+    text-align: center;
+
+    &--hello {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: 2px solid map.get($color-polo-blue, default);
+      border-radius: 3rem;
+      color: map.get($color-gray, default);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    &--small-confetti {
+      position: absolute;
+      bottom: 2.5rem;
+      right: -1rem;
+      z-index: -1;
+      pointer-events: none;
+    }
+    &--large-confetti {
+      position: relative;
+      top: -2rem;
+      right: 22rem;
+      pointer-events: none;
+    }
+
+    &--hero-text {
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: map.get($color-gray, default);
+
+      span {
+        color: map.get($color-brand, default);
+      }
+    }
+    &--personnel {
+      @include flexbox($justify: center, $align: center);
+      width: 81rem;
+      justify-self: center;
+      height: auto;
+      position: relative;
+
+      @include respond-to-min(desktop) {
+        width: 88rem;
+      }
+      @include respond-to-min(very-wide-screen) {
+        width: 55%;
+      }
+
+      &--qualities {
+        :first-child {
+          border-bottom: 4px solid map.get($color-polo-blue, hover);
+          background: map.get($color-polo-blue, light);
+          top: 3.5rem;
+          left: 15.5rem;
+        }
+        :nth-child(2) {
+          border-bottom: 4px solid map.get($color-brand, default);
+          background: map.get($color-brand, light);
+          top: 0;
+          right: 22rem;
+        }
+        :nth-child(3) {
+          border-bottom: 4px solid map.get($color-brand, default);
+          background: map.get($color-brand, light);
+          bottom: 10rem;
+          left: 8rem;
+        }
+        :nth-child(4) {
+          border-bottom: 4px solid map.get($color-polo-blue, default);
+          background: map.get($color-polo-blue, light);
+          bottom: 15rem;
+          right: 10rem;
+        }
+      }
+      &--quality {
+        position: absolute;
+        display: inline-flex;
+        @include flexbox($justify: center, $align: center);
+        width: 12.5rem;
+        height: 2.82256rem;
+        border-radius: 0.854rem;
+        z-index: -2;
+      }
+
+      &__profile-container {
+        width: 55rem;
+        height: 28rem;
+        @include flexbox($justify: center, $align: center, $gap: 2rem);
+        border-top-left-radius: 50rem;
+        border-top-right-radius: 50rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background: linear-gradient(
+          180deg,
+          var(--Polo-Blue-200, rgba(211, 227, 242, 0.81)) 0%,
+          var(--Polo-Blue-700, rgba(179, 177, 194, 0.81)) 56.25%
+        );
+
+        &--profile {
+          width: 31.91963rem;
+          height: 40.875rem;
+          position: absolute;
+          bottom: 0;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+
+  &__skills-section {
+    width: 100%;
+    position: relative;
+    animation: appearFromBottom 5s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    @include flexbox($justify: center);
+
+    &--overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(252, 135, 59, 0.1);
+      z-index: 20;
+    }
+    &--circles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -10;
+      backdrop-filter: blur(100px);
+
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.3;
+        filter: blur(2rem);
+      }
+
+      .circle1 {
+        background-color: map.get($color-brand, default);
+        width: 25rem;
+        height: 25rem;
+        top: 0rem;
+        left: 8rem;
+        animation: rotateRight 25s linear infinite;
+      }
+
+      .circle2 {
+        background-color: map.get($color-polo-blue, default);
+        width: 30rem;
+        height: 30rem;
+        top: 4rem;
+        right: 5rem;
+        animation: rotateLeft 20s linear infinite reverse;
+      }
+
+      .circle3 {
+        background-color: map.get($color-brand, default);
+        width: 30rem;
+        height: 30rem;
+        bottom: 1rem;
+        left: 8rem;
+        animation: rotateRight 19s linear infinite;
+      }
+      .circle4 {
+        background-color: map.get($color-brand, default);
+        width: 30rem;
+        height: 30rem;
+        top: 1rem;
+        right: 0rem;
+        animation: rotateLeft 22s linear infinite;
+      }
+      .circle5 {
+        background-color: map.get($color-polo-blue, default);
+        width: 30rem;
+        height: 30rem;
+        bottom: 0rem;
+        left: 0rem;
+        animation: rotateRight 40s linear infinite;
+      }
+    }
+    &__skills-container {
+      text-align: center;
+      padding-top: 4rem;
+    }
+    &__title {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: 2px solid map.get($color-polo-blue, default);
+      border-radius: 3rem;
+      color: map.get($color-gray, default);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    &__intro {
+      margin-bottom: 4rem;
+      color: map.get($color-gray, default);
+      font-size: 1.2rem;
+      padding: 0 1rem;
+      max-width: 70rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__contact-section {
+    width: 100%;
+    @include flexbox($justify: center, $align: center);
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 1rem;
+
+    &--title {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 4rem;
+      color: map.get($color-gray, default);
+      margin-bottom: 1rem;
+      text-align: center;
+      max-width: 55%;
+
+      span {
+        color: map.get($color-brand, default);
+      }
+    }
+    &--input {
+      width: 100%;
+      max-width: 50rem;
+      @include flexbox($justify: space-between, $align: center);
+      padding: 1rem;
+      border: 1px solid map.get($color-brand, hover);
+      border-radius: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: map.get($color-gray, default);
+
+      &-container {
+        width: 80%;
+        @include flexbox($align: center, $gap: 1rem);
+      }
+
+      &-icon {
+        width: 3.6rem;
+        height: 3.6rem;
+        flex-shrink: 0;
+        border-radius: 50%;
+        @include flexbox($justify: center, $align: center);
+        background: map.get($color-brand, light);
+      }
+
+      &-field {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: map.get($color-gray, default);
+
+        &::placeholder {
+          color: map.get($color-gray, hover);
+        }
+      }
+
+      &-button {
+        padding: 0.8rem .5rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 3rem;
+        color: white;
+        background: map.get($color-brand, default);
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: map.get($color-brand, hover);
+        }
+      }
+    }
+  }
+}
