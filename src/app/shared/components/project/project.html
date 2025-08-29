@@ -1,0 +1,14 @@
+<div class="project-container">
+    <div class="project-container__project">
+        <img class="project-container__project__background" [src]="projectImageUrl()" alt="bg">
+        <!-- <p>k</p> -->
+        <div class="project-container__project__link-container">
+            <a class="project-container__project__link"><img src="assets/icons/arrow-up.svg" alt="arrow"></a>
+        </div>
+    </div>
+
+    <span class="project-container__project__title">{{projectTitle()}}</span>
+    <p class="project-container__project__description">
+        {{projectDescription()}}
+    </p>
+</div>
