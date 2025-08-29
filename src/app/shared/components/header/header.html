@@ -1,12 +1,14 @@
-<div class="header-container">
-    <header class="header">
-        <div class="header__logo">
-            <a routerLink="/">
-                <img src="/assets/images/logo.png" alt="Logo" />
-            </a>
-        </div>
-        <button type="button" class="header__contact-btn">
-            Contact me
-        </button>
-    </header>
-</div>
+@if(displayHeader()){
+    <div class="header-container" [@slideIn]>
+        <header class="header">
+            <div class="header__logo">
+                <a routerLink="/">
+                    <img src="/assets/images/logo.png" alt="Logo" />
+                </a>
+            </div>
+            <button type="button" class="header__contact-btn">
+                Contact me
+            </button>
+        </header>
+    </div>
+}
