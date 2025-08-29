@@ -1,3 +1,6 @@
+@use "../styles/_variables" as *;
+@use "sass:map";
+
 @mixin flexbox($justify: flex-start, $align: stretch, $gap: null) {
   display: flex;
   justify-content: $justify;
@@ -5,4 +8,11 @@
   @if $gap {
     gap: $gap;
   }
-}
+};
+
+
+@mixin respond-to-min($breakpoint) {
+  @media (min-width: map.get($breakpoints, $breakpoint)) {
+    @content;
+  }
+};
