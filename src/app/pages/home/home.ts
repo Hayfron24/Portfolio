@@ -7,14 +7,17 @@ import {
 } from "@angular/animations";
 import {
   Component,
+  inject,
   OnInit,
   signal,
 } from "@angular/core";
 import { Project } from "../../shared/components/project/project";
+import { FormControl, ReactiveFormsModule, Validators } from "@angular/forms";
+import { EmailService } from "../../shared/email-service";
 
 @Component({
   selector: "app-home",
-  imports: [Project],
+  imports: [Project, ReactiveFormsModule],
   animations: [
     trigger("fadeIn", [
       transition(":enter", [
@@ -87,7 +90,10 @@ export class Home implements OnInit {
   public displayProfile = signal(false);
   public displayProfilePicture = signal(false);
   public showSkills = signal(false);
-  private observer!: IntersectionObserver;
+
+  public emailService = inject(EmailService)
+  
+  public email = new FormControl('',[Validators.required, Validators.email]);
 
   public ngOnInit(): void {
     setTimeout(() => {
@@ -101,5 +107,19 @@ export class Home implements OnInit {
     setTimeout(() => {
       this.displayProfilePicture.set(true);
     }, 4000);
+
+    console.log(this.email.value);
+  }
+
+
+  onSubmit() {
+    if (this.email.valid) {
+      console.log("Form Submitted!", this.email.value);
+      this.emailService.sendEmail(this.email.value!);
+      this.email.reset();
+
+    } else {
+      console.log("Form not valid");
+    }
   }
 }

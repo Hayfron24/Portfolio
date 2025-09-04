@@ -157,7 +157,7 @@
   &__skills-section {
     width: 100%;
     position: relative;
-    animation: appearFromBottom 5s ease both;
+    animation: appearFromBottom 2s ease both;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
     @include flexbox($justify: center);
@@ -261,6 +261,9 @@
     flex-direction: column;
     text-align: center;
     padding: 4rem 1rem;
+    animation: appearFromBottom 2s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
 
     &--title {
       font-size: 3rem;
@@ -314,7 +317,7 @@
       }
 
       &-button {
-        padding: 0.8rem .5rem;
+        padding: 0.8rem 0.5rem;
         font-size: 1rem;
         font-weight: 700;
         border: none;
@@ -328,6 +331,51 @@
           background: map.get($color-brand, hover);
         }
       }
+    }
+  }
+
+  &__projects-container {
+    width: 100%;
+    @include flexbox($justify: center, $align: center);
+    animation: appearFromBottom 2s ease-in-out both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+
+    &--wrapper {
+      width: 80%;
+    }
+
+    &--header {
+      @include flexbox($justify: space-between, $align: center);
+      margin-bottom: 2rem;
+
+      &-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: map.get($color-gray, default);
+      }
+
+      &-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 3rem;
+        color: white;
+        background: map.get($color-brand, default);
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: map.get($color-brand, hover);
+        }
+      }
+    }
+    &--projects {
+      width: 100%;
+      @include flexbox($justify: center, $align: center, $gap: 3.5rem);
+      flex-wrap: wrap;
+
     }
   }
 }
