@@ -2,6 +2,17 @@
 @use "../../styles/mixin" as *;
 @use "sass:map";
 
+@keyframes appearFromBottom {
+  0% {
+    opacity: 0;
+    scale: 0.2;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
 .project-container {
   width: 21.875rem;
   height: 100%;
@@ -86,8 +97,7 @@
       font-size: 1.75rem;
       line-height: 2.625rem;
       color: map.get($color-gray, hover);
-      line-height: 1.5rem;
-      height: 4.5rem;
+      line-height: 2.5rem;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;

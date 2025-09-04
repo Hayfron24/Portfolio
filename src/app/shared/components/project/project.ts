@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: "./project.scss",
 })
 export class Project {
-  public projectImageUrl = input<string>("/assets/icons/skills.svg");
-  public projectTitle = input<string>("Project Title");
-  public projectDescription = input<string>("Project Description");
+  public projectImageUrl = input.required<string>();
+  public projectTitle = input.required<string>();
+  public projectDescription = input.required<string>();
 }
